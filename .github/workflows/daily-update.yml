@@ -26,8 +26,8 @@ jobs:
 
       - name: Commit changes
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "Coffee-sipper"
+          git config user.email "${{ secrets.COMMIT_EMAIL }}"
 
           git add activity.log stats.json
 
