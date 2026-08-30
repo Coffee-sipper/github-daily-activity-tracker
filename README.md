@@ -1,20 +1,17 @@
 # GitHub Daily Activity Tracker
 
-A small Python + GitHub Actions project that records one daily activity entry and commits the updated log automatically.
+A small Python project that uses GitHub Actions to automatically record a daily activity update.
 
 ## What it does
 
-Every day, GitHub Actions:
+Every day, the workflow:
 
-1. Runs `update.py`
-2. Adds today's UTC date/time to `activity.log`
-3. Increments the activity counter
-4. Updates `stats.json`
-5. Commits the real file changes back to the repository
+* runs `update.py`
+* adds the current UTC date and time to `activity.log`
+* updates the counter in `stats.json`
+* commits the changes to the repository
 
-You can also run it manually from the **Actions** tab.
-
-> This project is intentionally designed to record actual automated project activity, not to create meaningless empty commits.
+You can also run the workflow manually from the **Actions** tab.
 
 ## Project structure
 
@@ -32,60 +29,32 @@ github-daily-activity-tracker/
 
 ## Setup
 
-### 1. Create the repository
+Create a repository called `github-daily-activity-tracker` and add the project files to it.
 
-Create a new GitHub repository named:
+Then go to:
 
-```text
-github-daily-activity-tracker
-```
+**Repository → Actions → Daily Activity Update**
 
-Make it **public** if you want the repository itself to be visible on your profile.
+You can use **Run workflow** to test it manually.
 
-### 2. Put these files in the repository
-
-Copy the project files into your repository and push them to the default branch (`main`).
-
-### 3. Enable Actions
-
-Open:
-
-**Repository → Actions**
-
-The workflow should appear as:
-
-**Daily Activity Update**
-
-The workflow has a manual **Run workflow** button, so you can test it immediately.
-
-### 4. Let it run automatically
-
-The workflow runs once per day at **19:30 UTC**.
-
-You can change the schedule in:
-
-```text
-.github/workflows/daily-update.yml
-```
-
-GitHub scheduled workflows use cron syntax and run on the repository's default branch.
+The workflow is scheduled to run once a day at **19:30 UTC**.
 
 ## Run locally
 
-You need Python 3.9+.
+This is optional. If you want to run the script yourself, you'll need Python 3.9+.
 
 ```bash
 python update.py
 ```
 
-Then check:
+It will update:
 
 ```text
 activity.log
 stats.json
 ```
 
-## Example output
+## Example
 
 `activity.log`
 
@@ -103,26 +72,17 @@ stats.json
 }
 ```
 
-## Why this is a useful project
+## What I used
 
-This tiny project demonstrates:
+* Python
+* Git
+* GitHub Actions
+* JSON
+* basic file handling
 
-- Python file I/O
-- JSON handling
-- Git
-- GitHub
-- GitHub Actions
-- scheduled automation
-- CI/CD concepts
-- automated commits
+## Note about contributions
 
-It is a better portfolio project than a repository containing thousands of empty commits.
-
-## Important GitHub contribution note
-
-For a commit to appear on your GitHub contribution graph, GitHub requires the commit email to be associated with your account, and the commit generally needs to be on the repository's default branch. Contributions can also take some time to appear.
-
-The workflow uses GitHub's built-in Actions identity, so the commit author should be configured to an email associated with your GitHub account if you want the commits attributed to you.
+For the commits to count toward your GitHub contribution graph, the commit email needs to be associated with your GitHub account and the commits generally need to be on the repository's default branch.
 
 ## License
 
