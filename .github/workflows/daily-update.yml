@@ -2,7 +2,7 @@ name: Daily Activity Update
 
 on:
   schedule:
-   - cron: "30 19 */6 * *"
+    - cron: "30 19 */6 * *"
   workflow_dispatch:
 
 permissions:
